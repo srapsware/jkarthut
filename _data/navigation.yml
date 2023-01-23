@@ -1,0 +1,24 @@
+#Please use the main menu items under the "text"
+
+- text: Home
+  url: /
+- text: Our Services
+  url: /services/
+  submenu:
+  - text: Web Development
+    url: /services/web-development/
+  - text: Mobile App
+    url: /services/mobile-app/
+  - text: Ecommerce Services
+    url: /services/ecommerce-services/
+- text: About
+  url: /about-lasthash/
+- text: Blog
+  url: /blog/
+- text: Support
+  url: #
+  submenu:
+  - text: Contact Us
+    url: /contact-us/
+  - text: Get free quote
+    url: /get-a-quote/

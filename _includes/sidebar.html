@@ -1,0 +1,57 @@
+<div class="blog-sidebar mt-30">
+    <div class="blog-search">
+        <form action="#">
+            <div class="input-box">
+                <input type="text" placeholder="Search Keywords">
+                <button type="button"><i class="far fa-search"></i></button>
+            </div>
+        </form>
+    </div>
+    <div class="blog-news white-bg mt-50">
+        <div class="blog-title">
+            <h3 class="title">Recent News</h3>
+        </div>
+        {% for post in site.posts limit:5 %}
+        <div class="blog-news-item {% if forloop.index == 3 %} none {% endif %}">
+            <div class="item">
+                <a href="{{post.url}}"><h5 class="title">{{post.title | truncatewords: 4}}</h5></a>
+                <span>{{post.date | date_to_long_string}}</span>
+                <a href="{{post.url}}"><img src="{{post.post_image}}" alt="{{post.title}}"/></a>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+    <div class="blog-list white-bg mt-50">
+        <div class="blog-title">
+            <h3 class="title">Category</h3>
+        </div>
+        <div class="blog-list-item">
+            <ul>
+            {% for category in site.categories %}
+                  <li><a href="/category/{{ category[0] | slugify }}/" class="post-tag">{{ category[0] }} ({{ category[1].size }})</a></li>
+          {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <div class="blog-list white-bg mt-50">
+        <div class="blog-title">
+            <h3 class="title">Populer Tag</h3>
+        </div>
+        <div class="blog-tag text-capitalize">
+                       <ul class="blog-tag">
+            {% for tag in site.tags %}
+            <li class="blog-tag-item"><a href="/tag/{{ tag[0] | slugify }}/" class="post-tag">{{ tag[0] }}</a></li>
+    {% endfor %}
+    </ul>
+        </div>
+    </div>
+    <div class="blog-add-area mt-55">
+        <img src="/assets/images/blog-add.jpg" alt="add">
+        <div class="add-overlay">
+            <h3 class="title">Work <br> Together</h3>
+            <p>We like to work on a project which offers us the scope of research and challenge the latest technologies.</p>
+            <a class="main-btn main-btn-2" href="/contact-us/">Contact Now <i class="fal fa-angle-double-right"></i></a>
+        </div>
+    </div>
+</div>
